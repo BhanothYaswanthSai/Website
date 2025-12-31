@@ -225,32 +225,15 @@ window.addEventListener('load', animateOnScroll);
 // Contact Form Handling
 // ===================================
 if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
+    contactForm.addEventListener('submit', function(e) {
         const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
         
-        // Show loading state
+        // Show loading state while form submits
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        // Simulate form submission (replace with actual form handling)
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        // Show success message
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        submitBtn.style.background = 'var(--success)';
-        
-        // Reset form
-        contactForm.reset();
-        
-        // Reset button after 3 seconds
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.style.background = '';
-            submitBtn.disabled = false;
-        }, 3000);
+        // Form will submit naturally to FormSubmit.co
+        // The page will redirect to a thank you page
     });
 }
 
